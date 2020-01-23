@@ -7,7 +7,7 @@ export const FeedData ={
       userName: 'Jensen O\' Brien',
       timeStamp: '21/01/2020 7:02:12',
       postType: 'Image',
-      postContent: 'https://i.picsum.photos/id/0/5616/3744.jpg',
+      image: 'https://i.picsum.photos/id/0/5616/3744.jpg',
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ export const FeedData ={
         userName: 'Atticus Mcintyre',
         timeStamp: '21/01/2020 6:57:02',
         postType: 'Text',
-        postContent: 'Real sold my in call. Invitation on an advantages collecting. But event old above shy bed noisy. Had sister see wooded favour income has.',
+        text: 'Real sold my in call. Invitation on an advantages collecting. But event old above shy bed noisy. Had sister see wooded favour income has.',
     },
     {
         id: 3,
@@ -23,7 +23,7 @@ export const FeedData ={
         userName: 'Jayden-Lee Wong',
         timeStamp: '21/01/2020 6:50:13',
         postType: 'Text',
-        postContent: 'Attended no do thoughts me on dissuade scarcely. Own are pretty spring suffer old denote his. By proposal speedily mr striking am.',
+        text: 'Attended no do thoughts me on dissuade scarcely. Own are pretty spring suffer old denote his. By proposal speedily mr striking am.',
     },
     {
         id: 4,
@@ -31,7 +31,7 @@ export const FeedData ={
         userName: 'Lynsey Glass',
         timeStamp: '21/01/2020 6:43:52',
         postType: 'Image',
-        postContent: 'https://i.picsum.photos/id/1003/1181/1772.jpg',
+        image: 'https://i.picsum.photos/id/1003/1181/1772.jpg',
     },
     {
         id: 5,
@@ -39,7 +39,7 @@ export const FeedData ={
         userName: 'Akeem Schultz',
         timeStamp: '21/01/2020 6:40:14',
         postType: 'Image',
-        postContent: 'https://i.picsum.photos/id/101/2621/1747.jpg',
+        image: 'https://i.picsum.photos/id/101/2621/1747.jpg',
     },
     {
         id: 6,
@@ -47,7 +47,7 @@ export const FeedData ={
         userName: 'Niam Townsend',
         timeStamp: '21/01/2020 6:30:12',
         postType: 'Text',
-        postContent: 'Written enquire painful ye to offices forming it. Then so does over sent dull on. Likewise offended humoured mrs fat trifling answered.',
+        text: 'Written enquire painful ye to offices forming it. Then so does over sent dull on. Likewise offended humoured mrs fat trifling answered.',
     },
     {
         id: 7,
@@ -55,7 +55,7 @@ export const FeedData ={
         userName: 'Sallie Galloway',
         timeStamp: '21/01/2020 6:29:18',
         postType: 'Image',
-        postContent: 'https://i.picsum.photos/id/1019/5472/3648.jpg',
+        image: 'https://i.picsum.photos/id/1019/5472/3648.jpg',
     },
     {
         id: 8,
@@ -63,7 +63,7 @@ export const FeedData ={
         userName: 'Hughie Hackett',
         timeStamp: '21/01/2020 6:27:12',
         postType: 'Text',
-        postContent: 'On ye position greatest so desirous. So wound stood guest weeks no terms up ought. By so these am so rapid blush songs begin. Nor but mean time one over.',
+        text: 'On ye position greatest so desirous. So wound stood guest weeks no terms up ought. By so these am so rapid blush songs begin. Nor but mean time one over.',
     },
 ] 
 }
