@@ -1,127 +1,75 @@
-.timestamp, button, .submit{
-  color:#808080;
-}
-.Outer-div{
-  width: 40%;
-  max-width: 100%;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  margin-bottom :10px;
-  margin-left: 30%;
-  padding: 10px;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  background-color:#F5F5F5;
-  box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12)
-}
-@media only screen and (max-width: 768px){
-  [class="Outer-div"]{
-    width: 60%;
-    margin-left: 20% ;
-  }
-}
-@media only screen and (max-width: 460px) {
-  /* For mobile phones: */
-  [class="Outer-div"] {
-    width: 100%;
-    margin-left: 0px;
-  }
-} 
-
-.user-div {
-  max-width: 100%;
-  height: 40px;
-  margin :auto;
-  padding: 10px;
+.helper {
+  margin: 1%;
+  padding: 1%;
+  overflow: hidden;
 }
 
-.pic-div {
+.wrapper{
+  width: 50%;
+  margin: 0 auto;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.user {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+
+.picholder {
   width: 10%;
-  height: 100%;
-  float: left;
-  border-radius: 50%;
+  display: inline-block;
 }
 
-.name-div {
-  margin-left: 11%;
-  height: 100%;
-  font-weight: bold;
+.pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  overflow: hidden;
 }
 
 .img{
   width: 100%;
   height: 100%;
-
-  border-radius: 50%;
-
-}
-.post-div{
-  max-width: 100%;
-  max-height: 60%;
-  margin-top: 5px;
-  margin-bottom: 10px;
 }
 
-.timestamp{
-  font-weight: lighter;
+.name {
+  width: 80%;
+  display: inline-block;
 }
 
-
-.img-post{
-  width: 100%;
-  object-fit: cover;
-  border-radius: 5px;
+span {
   display: block;
 }
 
-.buttonDiv{
-  width:100%;
-  height: aut;
-  margin-bottom: 5px;
-  border-bottom: 1px solid #d3d3d3 ;
-  border-top: 1px solid #d3d3d3;
-  padding-bottom: 3px;
+.post {
+  justify-content: space-evenly;
+  display: flex;
+}
 
+.post-img{
+  height: 400px;
+  width: 500px;
+  overflow: hidden;
 }
 
 button {
-  border: 1px outset transparent;
-  width:33.33%;
-  font-size: 15px;
-  background-color: #F5F5F5;
-  outline: none;
+  margin: 1%;
 }
 
-button:focus{
-  color: black;
+.group {
+  justify-content: space-between;
 }
 
-
-.Form{
-  width: auto;
-  margin-top: 10px;
-  height: auto;
-}
-.text,
-.submit {
-    font-size: 15px;
-    border-radius: 0;
-    outline: none;
-    background-color: #F5F5F5;
+.form {
+  flex-direction: row;
 }
 
-.text{
-    width: 70%;
-    border-radius: 5px ;
-    float: left;
+.textInput {
+  width: 60%
 }
 
 .submit {
-    border: 1px solid transparent;
-    width: 27%;
+  width: 30%
 }
