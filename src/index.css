@@ -1,0 +1,87 @@
+.Outer-div{
+  max-width: 40%;
+  margin-bottom :10px;
+  margin-left: 30%;
+  padding: 10px;
+  border-style: solid;
+  border-width: 2px;
+
+}
+.user-div {
+  max-width: 100%;
+  height: 40px;
+  margin :auto;
+  padding: 10px;
+}
+
+.pic-div {
+  width: 10%;
+  height: 100%;
+  float: left;
+}
+
+.name-div {
+  margin-left: 11%;
+  height: 100%;
+}
+
+.img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+  border: 1px solid lightgray;
+
+}
+.post-div{
+  max-width: 100%;
+  height: auto;
+  padding: auto;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+
+.img-post{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.buttonDiv{
+  width:100%;
+  height: 25px;
+  margin-bottom: 5px;
+
+}
+
+button {
+  border: 1px outset transparent;
+  width:33.33%;
+  font-size: 15px;
+  outline: none;
+}
+
+.Form{
+  width: 100%;
+  height: 25px;
+}
+
+.text,
+.submit {
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 0;
+    outline: none;
+}
+
+.text{
+    border: 1px solid lightgray;
+    width: 70%;
+}
+
+.submit {
+    border: 1px solid transparent;
+    width: 27%;
+}
