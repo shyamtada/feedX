@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { App } from "../Components/App";
+import Feed from "../Components/App";
 
 const mapStateToProps = state => ({
   data: state
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App)
+)(Feed)
