@@ -9,7 +9,7 @@ export class App extends Component {
 
   render() {
     let feedList = this.props.data[0];
-
+    const clicked=true;
     feedList && console.log("list", feedList.posts)
 
     const listFeed = feedList && feedList.posts.map(elem => {
@@ -20,7 +20,7 @@ export class App extends Component {
               <img src={elem.profilePicture} alt="profilePicture" className="img" />
             </div>
             <div className="name-div">
-              <span>{elem.userName}<br />{elem.timeStamp}</span>
+              <span>{elem.userName}<br /></span><span className="timestamp">{elem.timeStamp}</span>
             </div>
           </div>
 
@@ -30,16 +30,16 @@ export class App extends Component {
 
           <div className="buttonDiv">
             <button>like</button>
-            <button>Comment</button>
+            <button>Comments</button>
             <button>Share</button>
           </div>
-          
-          <div>
-            <form className="Form">
+
+          <div className="Form">
+            <form>
               <input className="text" type="text"
                 placeholder="write a comment.." />
               <input className="submit" type="submit"
-                value="submit" />
+                value="Submit" />
             </form>
           </div>
         </div>);
