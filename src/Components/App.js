@@ -12,21 +12,21 @@ export default class Feed extends Component {
 
     const listFeed = feedList && feedList.posts.map(elem => {
       return (
-        <div key={elem.id} className='wrapper helper'>
-          <div className="user helper">
-            <div className='picholder helper'>
+        <div key={elem.id} className='wrapper'>
+          <div className="user">
+            <div className='picholder'>
               <div className="pic">
                 <img src={elem.profilePicture} alt="profilePicture" className="img" />
               </div>
             </div>
 
-            <div className="name helper">
-              <span><name>{elem.userName}</name></span>
-              <span>{elem.timeStamp}</span>
+            <div className="name">
+              <span>{elem.userName}</span>
+              <span className="timestamp">{elem.timeStamp}</span>
             </div>
           </div>
 
-          <div className="post helper">
+          <div className="post">
             {elem.text ?
               <div className="post-text">
                 <p>{elem.text}</p>
@@ -34,25 +34,25 @@ export default class Feed extends Component {
 
             {elem.image ?
               <div className="post-img">
-                <img src={elem.image} alt='content-image' className='img' />
+                <img src={elem.image} alt='content-image' className='img-post' />
               </div> : null}
 
             {/* {elem.video ?
-              <div className="post-text helper">
+              <div className="post-text  ">
                 <p>{elem.video}</p>
               </div> : null} */}
           </div>
 
-          <div className="group helper">
+          <div className="group">
             <button>Like</button>
             <button>Comment</button>
             <button>Share</button>
           </div>
 
-          <form className="form helper">
-            <input className="textInput helper" type="text"
+          <form className="form">
+            <input className="textInput" type="text"
               placeholder="Keep Commenting..." />
-            <input className="submit helper" type="submit"
+            <input className="submit" type="submit"
               value="Submit" />
           </form>
         </div>);
@@ -60,7 +60,7 @@ export default class Feed extends Component {
     })
 
     return (
-      <div className='helper'>
+      <div>
         {listFeed}
       </div>
     )
