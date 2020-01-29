@@ -59,28 +59,17 @@ export default class Feed extends Component {
        this.setState({ showPopup: !this.state.showPopup, elementIdPopup: id })
   }
 
-  renderPopup = (id) => {
-    
+  renderPopup = (id) => {    
     this.setState({ showPopup: true, elementIdPopup: id })
   }
 
-  handleOutsideClick = (e)=> {
-    if (this.node.contains(e.target)) {
-      return;
-    }    
-    this.renderComment();
-  }
-
   renderComment = (id) => {
-    if (!this.state.showComments) {
-      document.addEventListener('click', this.handleOutsideClick, false);
-    } else {
-      document.removeEventListener('click', this.handleOutsideClick, false);
-    }
-   
+  if(this.state.elementIdComment!==id)  
+  {
+    this.setState({ showComments: true,elementIdComment: id})
+  }
+  else
     this.setState({ showComments: !this.state.showComments, elementIdComment: id })
-
-
   }
   addToList = (c, id) => {
     const commentList = this.state.commentList;
@@ -166,7 +155,7 @@ export default class Feed extends Component {
           </div>
 
           <div className="group">
-           <Popup trigger={<a className="btn" onClick={() => this.handleClick(elem.id, "like")}>Like</a>} position="top left" on={"hover"} className="popup"
+           <Popup trigger={<a className="btn" onClick={() => this.handleClick(elem.id, "like")}><img src="https://image.flaticon.com/icons/svg/1067/1067346.svg" className="commenticon"></img></a>} position="top left" on={"hover"} className="popup"
           open={this.state.showPopup && this.state.elementIdPopup === elem.id } onOpen={()=>this.renderPopup(elem.id)}>
               <div className="popupcontent">
                 <button onClick={() => this.handleClick(elem.id, "like")} className="emoticons"><span role="img" aria-label="like">👍</span></button>
@@ -177,11 +166,11 @@ export default class Feed extends Component {
                 <button onClick={() => this.handleClick(elem.id, "angry")} className="emoticons"><span role="img" aria-label="angry">😡</span></button>
               </div>
             </Popup> 
-            <a onClick={() => this.renderComment(elem.id)} className="btn">Comment</a>
-            <a className="btn">Share</a>
+            <a onClick={() => this.renderComment(elem.id)} className="btn"><img src="https://image.flaticon.com/icons/svg/2462/2462719.svg" className="commenticon"></img></a>
+            <a className="btn"><img src="https://image.flaticon.com/icons/svg/1059/1059106.svg" className="commenticon"></img></a>
           </div>
           {this.state.showComments && this.state.elementIdComment === elem.id ?
-           <div ref={node => { this.node = node; }}>
+           <div ref={node => { this.node = node; }} className="grpcomment">
             {listComments}
             <Comment id={elem.id} addToList={this.addToList} />
           </div> : null}
