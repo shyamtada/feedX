@@ -1,6 +1,4 @@
 export default function reducer(state = [], action) {
-    console.log("abcd");
-  
     switch (action.type) {
       case "RECEIVED_DATA":
         return [
@@ -11,8 +9,17 @@ export default function reducer(state = [], action) {
         ];
       case "GET_DATA":
         return state;
+      // case 'ADD_COMMENT':
+      // return [
+      //   ...state,
+      //   {
+      //     id: action.id,
+      //     text: action.text
+      //   }
+      // ]
       default:
         return state;
     }
+    
   }
   

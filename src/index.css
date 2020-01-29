@@ -5,20 +5,23 @@
   
 } */
 
-.timestamp, button, .submit{
+body{
+  background-color: #e9ebee;;
+}
+
+.timestamp, button, .submit, .like{
   color:#808080;
 }
 
 .wrapper{
-  width: 40%;
-  /* max-width: 100%; */
+  width: 45%;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin-bottom :1%;
-  margin-left: 30%;
+  margin-left: 27.5%;
   padding: 1%;
   border: 1px solid transparent;
   border-radius: 1%;
-  background-color:#F5F5F5;
+  background-color:#fff;
   box-shadow:
   0 2.8px 2.2px rgba(0, 0, 0, 0.034),
   0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -27,6 +30,32 @@
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12)
 }
+
+.comment{
+  background-color: #f2f3f1;
+  width: fit-content;
+  margin-left: 10%;
+  border-radius: 18px;
+  padding: 5px;
+  color: #1c1e21;
+  line-height: 16px;
+  max-width: 60%;
+  word-wrap: break-word;
+  position: relative;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.commentDiv{
+  margin-bottom: 10px;
+}
+
+.profilename{
+  color:#385898;
+}
+
+
+
 
 @media only screen and (max-width: 768px){
   [class='wrapper']{
@@ -37,7 +66,7 @@
 @media only screen and (max-width: 460px) {
   /* For mobile phones: */
   [class='wrapper'] {
-    width: 94%;
+    width: 97.6%;
     margin-left: 0%;
   }
 } 
@@ -51,31 +80,26 @@
   height: 40px;
   margin :auto;
   padding: 10px;
+  overflow: hidden;
 }
 
 .picholder {
-  /* width: 10%;
-  display: inline-block; */
   width: 10%;
-  height: 100%;
   float: left;
-  border-radius: 50%;
 }
 
 .pic {
-  /* width: 60px;
-  height: 60px;
+   width: 40px;
+  height: 40px;
   border-radius: 30px;
-  overflow: hidden; */
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
+  overflow: hidden; 
+  border: 1px solid rgba(0, 0, 0, .1);
 }
 
 .img{
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  border-radius: 45%;
 }
 
 .img-post{
@@ -84,21 +108,38 @@
 }
 
 .name {
-  /* width: 80%;
-  margin-left: 11%;
-  display: inline-block; */
-  margin-left: 11%;
-  height: 100%;
-  font-size: large;
+  overflow: hidden;
+  width: 80%;
+  margin-left: 60px;
+  color: #385898;
+  font-weight: 600;
 }
 
 .timestamp {
   font-weight: lighter;
   font-size: small;
+  overflow: hidden;
 }
 
 span {
   display: block;
+}
+
+.emoticons{
+  border: 1px outset transparent;
+  width: 16.66%;
+  height: 100%;
+  font-size: 100%;
+  outline: none;
+}
+
+.emoticons:hover{
+  font-size:150%;
+}
+
+.popupcontent{
+  height: 100%;
+  width: 100%;
 }
 
 .post {
@@ -110,40 +151,92 @@ span {
 .post-img{
   height: 400px;
   width: 500px;
+  margin-bottom: 1%;
   overflow: hidden;
 }
 
-button {
-  border: 1px outset transparent;
-  width:33.33%;
-  font-size: 15px;
-  background-color: #F5F5F5;
-  outline: none;
+.btn {
+  
+  color: #606770;
+  display: flex;
+  flex: 1 0;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 14px;
+  padding: 0 5px;
+  position: relative;
+  text-decoration: none;
+  transition: 400ms;
+  cursor: pointer;
 }
 
 .group {
   margin-bottom: 5px;
   border-bottom: 1px solid #d3d3d3 ;
   border-top: 1px solid #d3d3d3;
-  padding-bottom: 3px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  overflow: hidden;
 }
 
-.form {
-  flex-direction: row;
-  
+.popup-content.popup-content 
+{
+  width: 100%;
+  height: 5%;
+  border-radius: 10px;
+}
+
+.addcomment{
+  height: auto;
+  margin :auto;
+  padding: 10px;
+}
+
+.profileholder{
+  width: 6%;
+  float: left;
+}
+.profilepic{
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  border-radius: 25px;
+  overflow: hidden; 
+}
+
+form {
+  margin-left: 40px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #f2f3f5;
+  border: 1px solid #ccd0d5;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .textInput {
-  width: 67%;
-  background-color: #F5F5F5;
+  width: 65%;
   font-size: 15px;
+  border: 1px solid transparent;
+  background-color: inherit;
   outline: none;
+  border-radius: inherit;
+  padding: 5px;
 }
 
 .submit {
-  width: 30%;
-  background-color: #F5F5F5;
+  width: 30.5%;
+  margin-left: 1%;
   font-size: 15px;
-  outline: none;
   border: 1px solid transparent;
+  background-color: inherit;
+  outline: none;
+  border-radius: inherit;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
 }
+
