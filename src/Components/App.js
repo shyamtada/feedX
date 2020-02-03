@@ -155,7 +155,7 @@ export default class Feed extends Component {
           </div>
 
           <div className="group">
-           <Popup trigger={<a className="btn" onClick={() => this.handleClick(elem.id, "like")}><img src="https://image.flaticon.com/icons/svg/1067/1067346.svg" className="commenticon"></img></a>} position="top left" on={"hover"} className="popup"
+           <Popup trigger={<a className="btn" onClick={() => this.handleClick(elem.id, "like")}><img src="https://image.flaticon.com/icons/svg/1067/1067346.svg" className="icons" alt="likeicon"></img></a>} position="top left" on={"hover"} className="popup"
           open={this.state.showPopup && this.state.elementIdPopup === elem.id } onOpen={()=>this.renderPopup(elem.id)}>
               <div className="popupcontent">
                 <button onClick={() => this.handleClick(elem.id, "like")} className="emoticons"><span role="img" aria-label="like">👍</span></button>
@@ -166,8 +166,8 @@ export default class Feed extends Component {
                 <button onClick={() => this.handleClick(elem.id, "angry")} className="emoticons"><span role="img" aria-label="angry">😡</span></button>
               </div>
             </Popup> 
-            <a onClick={() => this.renderComment(elem.id)} className="btn"><img src="https://image.flaticon.com/icons/svg/2462/2462719.svg" className="commenticon"></img></a>
-            <a className="btn"><img src="https://image.flaticon.com/icons/svg/1059/1059106.svg" className="commenticon"></img></a>
+            <a onClick={() => this.renderComment(elem.id)} className="btn"><img src="https://image.flaticon.com/icons/svg/2462/2462719.svg" className="icons" alt="commenticon"></img></a>
+            <a className="btn"><img src="https://image.flaticon.com/icons/svg/1059/1059106.svg" className="icons" alt="shareicon"></img></a>
           </div>
           {this.state.showComments && this.state.elementIdComment === elem.id ?
            <div ref={node => { this.node = node; }} className="grpcomment">

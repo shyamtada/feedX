@@ -41,44 +41,6 @@ body{
   box-shadow: -6px -6px 16px 0px rgba(255,255,255,0.83), 6px 6px 16px 0px rgba(217,210,200,0.51);
 }
 
-.like{
-  border-bottom: 1px solid #dadde1;
-  margin: 0px;
-  padding: 5px;
-  width: 90%;
-    margin: 0 auto;
-    color:#000;
-    padding: 15px 0px;
-}
-
-.comment{
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: 90%;
-    margin-left: 12px;
-    border-radius: 18px;
-    padding: 5px 15px;
-    color: #1c1e21;
-    font-size: 12px;
-    line-height: 15px;
-    /* max-width: 60%; */
-    word-wrap: break-word;
-    position: relative;
-    white-space: normal;
-    word-break: break-word;
-}
-
-.commentDiv{
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-.profilename{
-  color:#385898;
-}
-
-
-
 
 @media only screen and (max-width: 768px){
   [class='wrapper']{
@@ -143,6 +105,56 @@ span {
   display: block;
 }
 
+
+.post {
+  max-width: 100%;
+  max-height: 500px;
+  justify-content: space-evenly;
+  overflow: hidden;
+  display: flex;
+  padding: 5px 5px 0px 5px;
+}
+
+.post-text{
+  padding: 0px 20px;
+}
+
+.post-img{
+  height: auto;
+  width: auto;
+  margin:0 auto ;
+  overflow:  hidden;
+}
+
+.img-post{
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+ }
+
+ .like{
+  border-bottom: 1px solid #dadde1;
+  margin: 0px;
+  padding: 5px;
+  width: 90%;
+    margin: 0 auto;
+    color:#000;
+    padding: 15px 0px;
+}
+
+.btn {
+  color: #606770;
+  display: flex;
+  font-weight: 600;
+  flex:1;
+  justify-content: center;
+  line-height: 14px;
+  padding: 5px;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .emoticons{
   border: 1px outset transparent;
   width: 16.66%;
@@ -162,62 +174,11 @@ span {
   width: 100%;
 }
 
-.post {
-  max-width: 100%;
-  max-height: 500px;
-  justify-content: space-evenly;
-  overflow: hidden;
-  display: flex;
-  padding: 5px 5px 0px 5px;
-}
-
-.post-text{
-  padding: 0px 20px;
-}
-
-.post-img{
-  height: auto;
-  width: auto;
-  overflow:  hidden;
-}
-
-.img-post{
-  max-height: 100%;
-  max-width: 100%;
-  margin: 0 auto;
- }
-
-.btn {
-  color: #606770;
-  display: flex;
-  font-weight: 600;
-  flex:1;
-  justify-content: center;
-  line-height: 14px;
-  padding: 5px;
-  position: relative;
-  text-decoration: none;
-  transition: 400ms;
-  cursor: pointer;
-}
-
-.commenticon{
+.icons{
   height: 100%;
   width: 20%
 }
 
-
-
-
-.group {
-  margin-bottom: 5px;
-  border-bottom: 1px solid #dadde1;
-  display: flex;
-  padding: 10px 10px 20px 10px;
-  overflow: hidden;
-  width: 85%;
-  margin: 0 auto;
-}
 
 .popup-content.popup-content 
 {
@@ -225,7 +186,20 @@ span {
   border-radius: 10px;
 }
 
+
+.group {
+  margin-bottom: 5px;
+  display: flex;
+  padding: 10px 10px 20px 10px;
+  overflow: hidden;
+  width: 85%;
+  margin: 0 auto;
+}
+
+
 .grpcomment{
+
+  border-top: 1px solid #dadde1;
   width: 90%;
   margin: auto;
   padding: 15px 0px;
@@ -237,6 +211,32 @@ span {
   display: flex;
   align-items: center;
 }
+
+.commentDiv{
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.comment{
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: 90%;
+  margin-left: 12px;
+  border-radius: 18px;
+  padding: 5px 15px;
+  color: #1c1e21;
+  font-size: 12px;
+  line-height: 15px;
+  /* max-width: 60%; */
+  word-wrap: break-word;
+  position: relative;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.profilename{
+  color:#385898;
+}
+
 
 .profileholder{
   width: 6%;
