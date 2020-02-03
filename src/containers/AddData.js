@@ -6,7 +6,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getData: () => dispatch({ type: "GET_DATA" })
+  getData: () => dispatch({ type: "GET_DATA" }),
 })
 
 
