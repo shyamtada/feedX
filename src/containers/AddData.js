@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import Feed from "../Components/App";
 
+export default Feed;
+
 const mapStateToProps = state => ({
   data: state
 })
@@ -10,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Feed)
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Feed)
