@@ -1,0 +1,43 @@
+/* #example-component {
+    position: relative;
+  }
+  
+  #hot {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 320px;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  #action-list {
+    position: absolute;
+    top: 15px;
+    left: 350px;
+    
+    h4 {
+      margin: 0 0 0 15px;
+      padding: 0;
+    }
+    
+    .empty {
+      color: #9e9e9e;
+      margin: 15px 0 0 15px;
+      font-style: italic;
+      font-size: 17px;
+    }
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    max-width: 800px;
+  }
+  
+  li.change {
+    display: block;
+    background: #d8f3d8;
+    margin: 10px;
+    padding: 10px;
+  } */

@@ -4,6 +4,7 @@ import { render } from 'react-dom'
 // import { createStore, applyMiddleware } from 'redux'
 // import reducer from './Reducers'
 import AddData from './Containers/AddData'
+import InfiniteScroll from './Components/InfiniteScroll'
 // import createSagaMiddleware from "redux-saga";
 // import rootSaga from "./Sagas";
 import './index.css';
@@ -13,7 +14,7 @@ import './index.css';
 // sagaMiddleware.run(rootSaga);
 
 import ApolloClient from 'apollo-boost';
-import { gql } from "apollo-boost";
+// import { gql } from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
 
@@ -47,8 +48,9 @@ const client = new ApolloClient({
 
 render(
   <ApolloProvider client={client}>
-    <AddData />
-  </ApolloProvider>
+     <AddData />
+    {/* <InfiniteScroll /> */}
+   </ApolloProvider>
   ,
   document.getElementById('root')
 )
