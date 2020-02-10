@@ -10,20 +10,16 @@ class VideoPlayer extends Component {
     return (
       <Waypoint onEnter={(data) => console.log('Hello', data)} onLeave={() => console.log('World')}>
         <ReactPlayer
-          url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4'
+          url={this.props.src || 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4'}
           controls
           playing
           pip
           width={'100%'}
           height={'100%'}
           preload={'true'}
-          muted
+          muted={this.props.muted === 1 ? true : false}
           loop
-          // playing={this.state.autoPlay}
-          // progressInterval={5000}
-          // onProgress={() => this.setState({ autoPlay: false })}
           className={'experiment'}
-          // ref={c => console.log('C => ', c)}
           ref={this.props.innerRef}
         />
       </Waypoint>
@@ -31,7 +27,9 @@ class VideoPlayer extends Component {
   }
 }
 
-const VideoPlayerWithRef = React.forwardRef((props, ref) => <VideoPlayer innerRef={ref} {...props} />);
+const VideoPlayerWithRef = React.forwardRef((props, ref) => {
+  return <VideoPlayer innerRef={ref} {...props} />
+});
 
 class Images extends Component {
   static defaultProps = {
@@ -52,7 +50,6 @@ class Images extends Component {
       conditionalRender: false,
       imageUrls: [],
       selectedImage: {},
-      // thumbnails: []
     };
 
     this.openModal = this.openModal.bind(this);
@@ -62,110 +59,42 @@ class Images extends Component {
       console.warn("countFrom is limited to 5!");
     }
 
-    // this.myRef = React.createRef();
   }
-  // generateVideoThumbnail = async (url, i) => {
-  //   let canvas = document.createElement("canvas");
-  //   canvas.width = 640;
-  //   canvas.height = 480;
-  //   canvas.crossOrigin = "anonymous";
-  //   let context = canvas.getContext("2d");
-  //   let video = document.createElement("video");
-  //   video.width = 0;
-  //   video.id = `video-${i}`;
-  //   video.crossOrigin = "anonymous";
-  //   let source = document.createElement("source");
-  //   source.src = url;
-  //   video.appendChild(source);
-  //   document.getElementsByTagName("html")[0].append(video);
-  //   video.autoplay = true;
-  //   video.muted = true;
-  //   video.ontimeupdate = () => {
-  //     video.pause();
-  //     context.drawImage(
-  //       document.getElementById(`video-${i}`),
-  //       0,
-  //       0,
-  //       canvas.width,
-  //       canvas.height
-  //     );
-  //     const { thumbnails } = this.state;
-  //     thumbnails[i] = canvas.toDataURL("image/jpeg");
-  //     this.setState({ thumbnails });
-  //   };
-  // };
 
   sortImages = images => {
     const imageUrls = [];
-    // const thumbnails = [];
     images.forEach((img, i) => {
       if (this.pureTypeOf(img) === "object") {
         if ("iFrame" in img && img.iFrame) {
           imageUrls.push(() => (
             <div className="flex-container-div">
-              {/* <div className='thumbnail-container'> */}
               <iframe
                 title="cats"
                 className="iframe"
                 src={img.url}
                 {...img.props}
               />
-              {/* </div> */}
             </div>
           ));
-          // thumbnails.push(img.thumbnail || null);
         } else if ("isVideo" in img && img.isVideo) {
           imageUrls.push(() => {
-            let playing;
             return (
               <div className="flex-container-div">
-                {/* <video
-                width="400"
-                controls
-                source={img.url}
-                {...img.props}
-                crossOrigin="anonymous"
-              >
-                <source src={img.url} />
-              </video> */}
-
-                {/* <Waypoint onEnter={(data)=>console.log('Hello', data)} onLeave={()=>console.log('World')}> */}
-                {/* <ReactPlayer url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4'
-                controls
-                // playing
-                pip
-                width={'100%'}
-                height={'100%'}
-                preload={'true'}
-                // muted
-                // playing={this.state.autoPlay}
-                // progressInterval={5000}
-                // onProgress={() => this.setState({ autoPlay: false })}
-                className={'experiment'}
-                // ref={c => console.log('C => ', c)}
-              /> */}
                 <div>
-                  <VideoPlayerWithRef src={img.url} />
+                  <VideoPlayerWithRef src={img.url} playing={this.state.modal ? 0: 1} />
                 </div>
-                {/* </Waypoint> */}
               </div>
             )
           });
-          // thumbnails.push(
-          //   img.thumbnail || this.generateVideoThumbnail(img.url, i)
-          // );
         } else {
           imageUrls.push(img.url);
-          // thumbnails.push(img.thumbnail || img.url);
         }
       } else {
         imageUrls.push(img);
-        // thumbnails.push(img);
       }
     });
     this.setState({
       imageUrls,
-      // thumbnails 
     });
   };
 
@@ -207,19 +136,14 @@ class Images extends Component {
   };
 
   renderIframe = (url, props = {}) => {
-    // <iframe className="iframe iframe-overlay" src={url} {...props} />
-    // console.log('I am here') 
-    return <VideoPlayerWithRef src={url} className='iframe' />
-    // return <p>Hello</p>
+    return <VideoPlayerWithRef src={url} className='iframe' playing={this.state.modal? 0: 1} />
   };
 
   renderOne() {
     const { images } = this.props;
-    const { countFrom,
-      // thumbnails 
-    } = this.state;
+    const { countFrom } = this.state;
     const overlay =
-      images.length > countFrom && countFrom == 1
+      images.length > countFrom && countFrom === 1
         ? this.renderCountOverlay(true)
         : this.renderOverlay();
     const firstItem = images[0];
@@ -237,9 +161,6 @@ class Images extends Component {
             md={12}
             className={`border height-one-demo background`}
             onClick={this.openModal.bind(this, 0)}
-            style={{
-              // background: `url(${thumbnails[0]})`
-            }}
           >
             {firstItemRender}
             {this.renderOverlay()}
@@ -251,9 +172,7 @@ class Images extends Component {
 
   renderTwo() {
     const { images } = this.props;
-    const { countFrom,
-      // thumbnails 
-    } = this.state;
+    const { countFrom } = this.state;
     const overlay =
       images.length > countFrom && [2, 3].includes(+countFrom)
         ? this.renderCountOverlay(true)
@@ -283,13 +202,7 @@ class Images extends Component {
             md={6}
             className="border height-two-demo background"
             onClick={this.openModal.bind(this, conditionalRender ? 1 : 0)}
-            style={{
-              // background: `url(${
-              //   conditionalRender ? thumbnails[1] : thumbnails[0]
-              //   })`
-              // height: '100px',
-              overflow: 'hidden'
-            }}
+            style={{ overflow: 'hidden' }}
           >
             {firstItemRender}
             {this.renderOverlay()}
@@ -299,11 +212,6 @@ class Images extends Component {
             md={6}
             className="border height-two-demo background"
             onClick={this.openModal.bind(this, conditionalRender ? 2 : 1)}
-            style={{
-              // background: `url(${
-              //   conditionalRender ? thumbnails[2] : thumbnails[1]
-              //   })`
-            }}
           >
             {secondItemRende}
             {overlay}
@@ -314,33 +222,26 @@ class Images extends Component {
   }
 
   isVideoCheck(temp) {
-    // console.log('SOmething => ', temp);
-
     return temp && temp.isVideo;
   }
 
   renderVideo(temp) {
-    // console.log('Really SOmething =>', temp);
-
-    return <VideoPlayerWithRef src={temp.url} />
-    // return <p>Hello</p>
+    return <VideoPlayerWithRef src={temp.url} muted={1} playing={this.state.modal? 0: 1} />
   }
 
   isImageCheck(temp) {
-    // console.log('Mave Se =>', temp)
     return temp && temp.isImage;
   }
 
   renderImage(temp) {
-    // console.log('Mave Se =>', temp)
     return <img src={temp.url} alt='something' style={{ height: '100%', width: '100%' }} />
   }
   
   renderThree(more) {
     const { images } = this.props;
-    const { countFrom,
-      // thumbnails
-    } = this.state;
+    const { countFrom } = this.state;
+    const conditionalRender =
+      images.length === 4 || (images.length > +countFrom && +countFrom === 4);
     const overlay =
       !countFrom ||
         countFrom > 5 ||
@@ -350,8 +251,7 @@ class Images extends Component {
           conditionalRender ? 3 : 4,
           conditionalRender ? 3 : 4
         );
-    const conditionalRender =
-      images.length == 4 || (images.length > +countFrom && +countFrom == 4);
+    
     const firstItem = images[conditionalRender ? 1 : 2];
     const secondItem = images[conditionalRender ? 2 : 3];
     const thirdItem = images[conditionalRender ? 3 : 4];
@@ -375,7 +275,6 @@ class Images extends Component {
       : this.isImageCheck(secondItem) ? this.renderImage(secondItem)
       : overlay;
 
-      // console.log('What the hell =>', firstItemRende, firstItem)
     return (
       <Grid>
         <Row>
@@ -384,11 +283,6 @@ class Images extends Component {
             md={4}
             className="border height-three-demo background"
             onClick={this.openModal.bind(this, conditionalRender ? 1 : 2)}
-            style={{
-              // background: `url(${
-              //   conditionalRender ? thumbnails[1] : thumbnails[2]
-              //   })`
-            }}
           >
             {firstItemRende}
             {this.renderOverlay()}
@@ -398,11 +292,6 @@ class Images extends Component {
             md={4}
             className="border height-three-demo background"
             onClick={this.openModal.bind(this, conditionalRender ? 2 : 3)}
-            style={{
-              // background: `url(${
-              //   conditionalRender ? thumbnails[2] : thumbnails[3]
-              //   })`
-            }}
           >
             {secondItemRende}
             {this.renderOverlay()}
@@ -412,11 +301,6 @@ class Images extends Component {
             md={4}
             className="border height-three-demo background"
             onClick={this.openModal.bind(this, conditionalRender ? 3 : 4)}
-            style={{
-              // background: `url(${
-              //   conditionalRender ? thumbnails[3] : thumbnails[4]
-              //   })`
-            }}
           >
             {overlay}
             {thirdItemRende}
@@ -481,7 +365,7 @@ class Images extends Component {
       <div className="grid-container">
         {[1, 3, 4].includes(imagesToShow.length) && this.renderOne()}
         {imagesToShow.length >= 2 &&
-          imagesToShow.length != 4 &&
+          imagesToShow.length !== 4 &&
           this.renderTwo()}
         {imagesToShow.length >= 4 && this.renderThree()}
 

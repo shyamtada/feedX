@@ -30,108 +30,11 @@ const images = {
 
 const content = [
     {
-        isImage: true,
-        url:
-            "https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg",
-        // thumbnail:
-        //     "https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1000"
-    },
-    {
         isVideo: true,
         url:
             "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
         props: {},
-        // thumbnail:
-        //     "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg"
     },
-    {
-        isVideo: true,
-        url:
-            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-        props: {},
-        // thumbnail:
-        //     "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg"
-    },
-    {
-        url: "http://www.youtube.com/embed/5dsGWM5XGdg",
-        // iFrame: true,
-        isVideo: true,
-        props: {},
-        // thumbnail:
-        //     "https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg"
-    },
-    {
-        url: "http://www.youtube.com/embed/5dsGWM5XGdg",
-        // iFrame: true,
-        isVideo: true,
-        props: {},
-        // thumbnail:
-        //     "https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg"
-    },
-    {
-        url: "http://www.youtube.com/embed/5dsGWM5XGdg",
-        // iFrame: true,
-        isVideo: true,
-        props: {},
-        // thumbnail:
-        //   "https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg"
-    },
-    {
-        url: "http://www.youtube.com/embed/5dsGWM5XGdg",
-        // iFrame: true,
-        isVideo: true,
-        props: {},
-        // thumbnail:
-        //   "https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg"
-    },
-    {
-        url: "http://www.youtube.com/embed/5dsGWM5XGdg",
-        // iFrame: true,
-        isVideo: true,
-        props: {},
-        // thumbnail:
-        //   "https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg"
-    },
-    {
-        url: "http://www.youtube.com/embed/5dsGWM5XGdg",
-        // iFrame: true,
-        isVideo: true,
-        props: {},
-        // thumbnail:
-        //   "https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg"
-    },
-    {
-        url: "http://www.youtube.com/embed/5dsGWM5XGdg",
-        // iFrame: true,
-        isVideo: true,
-        props: {},
-        // thumbnail:
-        //   "https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg"
-    },
-    {
-        url: "http://www.youtube.com/embed/5dsGWM5XGdg",
-        // iFrame: true,
-        isVideo: true,
-        props: {},
-        // thumbnail:
-        //   "https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg"
-    },
-    {
-        url: "http://www.youtube.com/embed/5dsGWM5XGdg",
-        // iFrame: true,
-        isVideo: true,
-        props: {},
-        // thumbnail:
-        //   "https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg"
-    },
-    {
-        url: "http://www.youtube.com/embed/5dsGWM5XGdg",
-        // iFrame: true,
-        isVideo: true,
-        props: {},
-        // thumbnail:
-        //   "https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg"
-    }
 ];
 
 export default class Listfeed extends React.Component {
@@ -210,27 +113,8 @@ export default class Listfeed extends React.Component {
                                                 : id[1] % 5 === 0 ?
                                                     <FbImageLibrary images={images[5]} countFrom={4} />
                                                     : id[1] % 7 === 0 ?
-                                                        // <FbImageLibrary images={images[7]} countFrom={4} />
                                                         <FbVideoLibrary images={content} />
-
-                                                        :
-                                                        // <Waypoint onEnter={()=>console.log('Hello')} onLeave={()=>console.log('World')} scrollableAncestor={window}>
-                                                        // <ReactPlayer url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4'
-                                                        //   controls
-                                                        //   playing
-                                                        //   pip
-                                                        //   width={'100%'}
-                                                        //   height={'100%'}
-                                                        //   preload={'true'}
-                                                        //   // muted
-                                                        //   // playing={this.state.autoPlay}
-                                                        //   // progressInterval={5000}
-                                                        //   // onProgress={() => this.setState({ autoPlay: false })}
-                                                        //   className={'experiment'}
-                                                        //   ref={c => this.refs = c}
-                                                        // />
-                                                        // </Waypoint>
-                                                        <FbImageLibrary images={images[7]} countFrom={4} />
+                                                        : <FbImageLibrary images={images[7]} countFrom={4} />
                                         }
                                     </div>
                                 </div>

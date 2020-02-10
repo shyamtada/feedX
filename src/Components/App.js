@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
-// import InfiniteScroll from 'react-infinite-scroll-component';
-import ReactPlayer from 'react-player';
-import { Waypoint } from 'react-waypoint';
-// import InfiniteScroll from 'react-bidirectional-infinite-scroll'
-// import Listfeed from './Listfeed';
 import InfiniteScroll from './InfiniteScroll'
 
 const GET_REVIEWS = gql`
@@ -26,14 +21,6 @@ query Review($first: Int, $offset: Int) {
  }
 }
 `;
-
-// const images = ['https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350',
-//   'https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg',
-//   'https://wallpaperbrowse.com/media/images/soap-bubble-1958650_960_720.jpg',
-//   'https://cdn.pixabay.com/photo/2016/10/27/22/53/heart-1776746_960_720.jpg',
-//   'https://images.pexels.com/photos/257840/pexels-photo-257840.jpeg?auto=compress&cs=tinysrgb&h=350',
-//   "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350",
-//   "https://wallpaperbrowse.com/media/images/3848765-wallpaper-images-download.jpg"];
 
 export default class Feed extends Component {
     constructor(props) {
@@ -97,6 +84,7 @@ export default class Feed extends Component {
         else
             this.setState({ showComments: !this.state.showComments, elementIdComment: id })
     }
+
     addToList = (c, id) => {
         const commentList = this.state.commentList;
         this.setState({
@@ -111,20 +99,6 @@ export default class Feed extends Component {
 
     logger = () => {
         this.wrapper && console.log('Save Me =>', this.wrapper.getBoundingClientRect())
-    }
-
-    componentDidMount() {
-        // this.props.getData();    
-        // window.addEventListener("scroll", this.logger);
-    }
-
-    handleOnScroll = (position, previousPosition) => {
-        const diffScroll = position - previousPosition
-        const direction = diffScroll > 0
-            ? 'down'
-            : 'up'
-
-        console.log(`Scroll ${direction} to ${position}`)
     }
 
     render() {
@@ -143,36 +117,9 @@ export default class Feed extends Component {
 
                     const { Review = [] } = data || [];
 
-                    // console.log("Review in App =>", Review);
-
                     return (
-                        // <InfiniteScroll
-                        //   dataLength={Review && Review.length || 20} //This is important field to render the next data
-                        //   next={() => fetchMore({
-                        //     variables: {
-                        //       offset: Review.length,
-                        //       first: 10
-                        //     },
-                        //     updateQuery: (prev, { fetchMoreResult }) => {
-                        //       if (!fetchMoreResult) return prev;
-                        //       return Object.assign({}, prev, {
-                        //         Review: [...prev.Review, ...fetchMoreResult.Review]
-                        //       })
-                        //     }
-                        //   })}
-                        //   hasMore={true}
-                        //   loader={<div className="lds-ripple"><div></div><div></div></div>}
-                        //   endMessage={
-                        //     <p style={{ textAlign: 'center' }}>
-                        //       <b>Yay! You have seen it all</b>
-                        //     </p>
-                        //   }>
                         <div>
-                            {/* {loading && <div className="lds-ripple"><div></div><div></div></div>} */}
-
                             <InfiniteScroll Review={Review} fetchMore={fetchMore} />
-
-                            {/* {loading && <div className="lds-ripple"><div></div><div></div></div>} */}
                         </div>
                     );
                 }}
